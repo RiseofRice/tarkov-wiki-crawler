@@ -63,10 +63,11 @@ export class TarkovSearch {
 
   /**
    * Generate wiki URL
+   * Uses Special:Search for more reliable results and forces English with uselang=en
    */
   private generateWikiUrl(query: string): string {
-    const encodedQuery = encodeURIComponent(query.replace(/ /g, '_'));
-    return `https://escapefromtarkov.fandom.com/wiki/${encodedQuery}`;
+    const encodedQuery = encodeURIComponent(query);
+    return `https://escapefromtarkov.fandom.com/wiki/Special:Search?query=${encodedQuery}&uselang=en`;
   }
 
   /**
